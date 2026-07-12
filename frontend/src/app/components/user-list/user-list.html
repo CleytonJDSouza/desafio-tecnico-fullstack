@@ -1,0 +1,47 @@
+<section class="user-list-container">
+  <div class="header">
+    <h2>Usuários</h2>
+    <button type="button" class="refresh-button" (click)="carregarUsuarios()">
+      Atualizar
+    </button>
+  </div>
+
+  @if (carregando()) {
+    <p class="status carregando">Carregando...</p>
+  } @else if (erro()) {
+    <p class="status erro">{{ erro() }}</p>
+  } @else if (usuarios().length === 0) {
+    <p class="status vazio">Nenhum usuário cadastrado ainda.</p>
+  } @else {
+    <div class="table-wrapper">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (usuario of usuarios(); track usuario.id ?? $index) {
+            <tr>
+              <td>{{ usuario.nome }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.telefone }}</td>
+              <td>
+                <div class="actions">
+                  <a class="action-link" [routerLink]="['/users', usuario.id]">Ver detalhes</a>
+                  <a class="action-link" [routerLink]="['/users', usuario.id, 'edit']">Editar</a>
+                  <button type="button" class="action-button danger" (click)="confirmarExclusao(usuario)">
+                    Excluir
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

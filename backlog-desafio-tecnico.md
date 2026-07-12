@@ -62,7 +62,7 @@
 📅 Dia 5 (Seg 13/07 - noite)
 
 - [X] **TASK-26** 🔴 Criar projeto Angular (`ng new`), configurar roteamento e HttpClientModule
-- [ ] **TASK-27** 🔴 Criar `UserService` (Angular) com métodos consumindo a API (`getAll`, `getById`, `create`, `update`, `delete`)
+- [X] **TASK-27** 🔴 Criar `UserService` (Angular) com métodos consumindo a API (`getAll`, `getById`, `create`, `update`, `delete`)
 - [ ] **TASK-28** 🔴 Criar model/interface `User` e `Address` no frontend (TypeScript)
 - [ ] **TASK-29** 🔴 Criar componente `user-list` — tabela com nome, e-mail, telefone e ações (ver/editar/excluir)
 - [ ] **TASK-30** 🔴 Configurar rotas principais (`/users`, `/users/:id`, `/users/new`, `/users/:id/edit`)

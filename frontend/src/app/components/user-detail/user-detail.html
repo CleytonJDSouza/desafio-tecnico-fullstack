@@ -1,0 +1,50 @@
+<section class="user-detail-container">
+  <div class="header">
+    <h2>Detalhes do usuário</h2>
+    <div class="actions">
+      <button type="button" class="secondary-button" (click)="voltarParaListagem()">
+        Voltar para listagem
+      </button>
+      <button type="button" class="primary-button" (click)="navegarParaEdicao()">
+        Editar
+      </button>
+    </div>
+  </div>
+
+  @if (carregando()) {
+    <p class="status carregando">Carregando...</p>
+  } @else if (erro()) {
+    <p class="status erro">{{ erro() }}</p>
+  } @else if (!usuario()) {
+    <p class="status vazio">Usuário não encontrado.</p>
+  } @else {
+    <div class="card">
+      <div class="user-info">
+        <h3>{{ usuario()?.nome }}</h3>
+        <p><strong>E-mail:</strong> {{ usuario()?.email }}</p>
+        <p><strong>Telefone:</strong> {{ usuario()?.telefone }}</p>
+      </div>
+
+      <div class="addresses-section">
+        <h3>Endereços</h3>
+
+        @if (!usuario()?.enderecos || usuario()!.enderecos.length === 0) {
+          <p class="status vazio">Nenhum endereço cadastrado.</p>
+        } @else {
+          <div class="addresses-list">
+            @for (endereco of usuario()!.enderecos; track endereco.id ?? $index) {
+              <article class="address-card">
+                <p><strong>CEP:</strong> {{ endereco.cep }}</p>
+                <p><strong>Rua:</strong> {{ endereco.rua || 'Não informado' }}</p>
+                <p><strong>Número:</strong> {{ endereco.numero }}</p>
+                <p><strong>Bairro:</strong> {{ endereco.bairro || 'Não informado' }}</p>
+                <p><strong>Cidade:</strong> {{ endereco.cidade || 'Não informado' }}</p>
+                <p><strong>Estado:</strong> {{ endereco.estado || 'Não informado' }}</p>
+              </article>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

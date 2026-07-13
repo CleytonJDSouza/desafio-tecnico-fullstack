@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { CepService } from '../../services/cep';
 
 @Component({
   selector: 'app-user-form',
@@ -22,14 +23,15 @@ export class UserFormComponent implements OnInit {
   modoEdicao = signal(false);
   titulo = signal('Cadastrar usuário');
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly route: ActivatedRoute,
-    private readonly router: Router,
-    private readonly userService: UserService
-  ) {
-    this.criarFormulario();
-  }
+constructor(
+  private readonly fb: FormBuilder,
+  private readonly route: ActivatedRoute,
+  private readonly router: Router,
+  private readonly userService: UserService,
+  private readonly cepService: CepService
+) {
+  this.criarFormulario();
+}
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -118,6 +120,38 @@ export class UserFormComponent implements OnInit {
       this.enderecos.removeAt(index);
     }
   }
+
+  buscarCep(index: number): void {
+  const grupoEndereco = this.enderecos.at(index) as FormGroup;
+  const cep = grupoEndereco.get('cep')?.value;
+
+  if (!cep) {
+    return;
+  }
+
+  grupoEndereco.get('rua')?.setValue('Buscando...');
+
+  this.cepService.consultar(cep).subscribe({
+    next: (resultado) => {
+      grupoEndereco.patchValue({
+        rua: resultado.rua,
+        bairro: resultado.bairro,
+        cidade: resultado.cidade,
+        estado: resultado.estado
+      });
+      grupoEndereco.get('cep')?.setErrors(null);
+    },
+    error: () => {
+      grupoEndereco.patchValue({
+        rua: '',
+        bairro: '',
+        cidade: '',
+        estado: ''
+      });
+      grupoEndereco.get('cep')?.setErrors({ cepInvalido: true });
+    }
+  });
+}
 
   marcarCamposComoTocados(): void {
     this.formulario.markAllAsTouched();

@@ -84,9 +84,17 @@
 
             <div class="field-group">
               <label [for]="'cep-' + $index">CEP</label>
-              <input [id]="'cep-' + $index" type="text" formControlName="cep" />
-              @if (endereco.get('cep')?.touched && endereco.get('cep')?.invalid) {
+              <input
+                [id]="'cep-' + $index"
+                type="text"
+                formControlName="cep"
+                (blur)="buscarCep($index)"
+              />
+              @if (endereco.get('cep')?.touched && endereco.get('cep')?.hasError('required')) {
                 <small class="field-error">CEP é obrigatório</small>
+              }
+              @if (endereco.get('cep')?.touched && endereco.get('cep')?.hasError('cepInvalido')) {
+                <small class="field-error">CEP não encontrado</small>
               }
             </div>
 

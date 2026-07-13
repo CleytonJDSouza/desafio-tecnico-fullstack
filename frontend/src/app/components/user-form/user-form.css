@@ -1,0 +1,161 @@
+.user-form-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #252422;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.header h2 {
+  margin: 0;
+  color: #eb5e28;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-button {
+  background: #eb5e28;
+  color: #403d39;
+}
+
+.primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background: #403d39;
+  color: #eb5e28;
+}
+
+.danger-button {
+  background: #eb5e28;
+  color: #fff;
+}
+
+.danger-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.small {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.error-banner {
+  background: #252422;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.status {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.carregando {
+  background: #252422;
+  color: #eb5e28;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-section {
+  border: 1px solid #ccc5b9;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #ccc5b9;
+}
+
+.section-header,
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-section h3,
+.address-card h4 {
+  margin: 0;
+  color: #252422;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.85rem;
+}
+
+.field-group label {
+  font-weight: 600;
+  color: #252422;
+}
+
+.field-group input {
+  border: 1px solid #252422;
+  border-radius: 6px;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+}
+
+.field-group input:focus {
+  outline: 2px solid #bfdbfe;
+  border-color: #eb5e28;
+}
+
+.field-error {
+  color: #dc2626;
+}
+
+.address-card {
+  padding: 1rem;
+  border: 1px solid #eb5e28;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .header,
+  .section-header,
+  .address-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,125 @@
+<section class="user-form-container">
+  <div class="header">
+    <h2>{{ titulo() }}</h2>
+    <div class="actions">
+      <button type="button" class="secondary-button" (click)="voltarParaListagem()">
+        Cancelar
+      </button>
+      <button type="button" class="primary-button" (click)="salvar()" [disabled]="salvando()">
+        @if (salvando()) {
+          <span>Salvando...</span>
+        } @else {
+          <span>Salvar</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (erroGeral()) {
+    <div class="error-banner">{{ erroGeral() }}</div>
+  }
+
+  @if (carregando()) {
+    <p class="status carregando">Carregando...</p>
+  } @else {
+    <form [formGroup]="formulario" class="user-form">
+      <div class="form-section">
+        <h3>Dados do usuário</h3>
+
+        <div class="field-group">
+          <label for="nome">Nome</label>
+          <input id="nome" type="text" formControlName="nome" />
+          @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid) {
+            <small class="field-error">Nome é obrigatório</small>
+          }
+          @if (erroPorCampo()['nome']) {
+            <small class="field-error">{{ erroPorCampo()['nome'] }}</small>
+          }
+        </div>
+
+        <div class="field-group">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" formControlName="email" />
+          @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+            <small class="field-error">Informe um e-mail válido</small>
+          }
+          @if (erroPorCampo()['email']) {
+            <small class="field-error">{{ erroPorCampo()['email'] }}</small>
+          }
+        </div>
+
+        <div class="field-group">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" type="text" formControlName="telefone" />
+          @if (formulario.get('telefone')?.touched && formulario.get('telefone')?.invalid) {
+            <small class="field-error">Telefone é obrigatório</small>
+          }
+          @if (erroPorCampo()['telefone']) {
+            <small class="field-error">{{ erroPorCampo()['telefone'] }}</small>
+          }
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="section-header">
+          <h3>Endereços</h3>
+          <button type="button" class="secondary-button small" (click)="adicionarEndereco()">
+            Adicionar endereço
+          </button>
+        </div>
+
+        @for (endereco of enderecos.controls; track $index) {
+          <div class="address-card" [formGroup]="$any(endereco)">
+            <div class="address-header">
+              <h4>Endereço {{ $index + 1 }}</h4>
+              <button
+                type="button"
+                class="danger-button"
+                (click)="removerEndereco($index)"
+                [disabled]="enderecos.length === 1"
+              >
+                Remover
+              </button>
+            </div>
+
+            <div class="field-group">
+              <label [for]="'cep-' + $index">CEP</label>
+              <input [id]="'cep-' + $index" type="text" formControlName="cep" />
+              @if (endereco.get('cep')?.touched && endereco.get('cep')?.invalid) {
+                <small class="field-error">CEP é obrigatório</small>
+              }
+            </div>
+
+            <div class="field-group">
+              <label [for]="'numero-' + $index">Número</label>
+              <input [id]="'numero-' + $index" type="text" formControlName="numero" />
+              @if (endereco.get('numero')?.touched && endereco.get('numero')?.invalid) {
+                <small class="field-error">Número é obrigatório</small>
+              }
+            </div>
+
+            <div class="field-group">
+              <label [for]="'rua-' + $index">Rua</label>
+              <input [id]="'rua-' + $index" type="text" formControlName="rua" readonly />
+            </div>
+
+            <div class="field-group">
+              <label [for]="'bairro-' + $index">Bairro</label>
+              <input [id]="'bairro-' + $index" type="text" formControlName="bairro" readonly />
+            </div>
+
+            <div class="field-group">
+              <label [for]="'cidade-' + $index">Cidade</label>
+              <input [id]="'cidade-' + $index" type="text" formControlName="cidade" readonly />
+            </div>
+
+            <div class="field-group">
+              <label [for]="'estado-' + $index">Estado</label>
+              <input [id]="'estado-' + $index" type="text" formControlName="estado" readonly />
+            </div>
+          </div>
+        }
+      </div>
+    </form>
+  }
+</section>

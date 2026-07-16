@@ -65,9 +65,9 @@
 - [X] **TASK-27** 🔴 Criar `UserService` (Angular) com métodos consumindo a API (`getAll`, `getById`, `create`, `update`, `delete`)
 - [X] **TASK-28** 🔴 Criar model/interface `User` e `Address` no frontend (TypeScript)
 - [X] **TASK-29** 🔴 Criar componente `user-list` — tabela com nome, e-mail, telefone e ações (ver/editar/excluir)
-- [ ] **TASK-30** 🔴 Configurar rotas principais (`/users`, `/users/:id`, `/users/new`, `/users/:id/edit`)
-- [ ] **TASK-31** 🟡 Estilizar listagem (algo simples e limpo, sem precisar de framework CSS pesado)
-- [ ] **TASK-32** 🔴 Commit: "estrutura base do frontend + listagem de usuários"
+- [X] **TASK-30** 🔴 Configurar rotas principais (`/users`, `/users/:id`, `/users/new`, `/users/:id/edit`)
+- [X] **TASK-31** 🟡 Estilizar listagem (algo simples e limpo, sem precisar de framework CSS pesado)
+- [X] **TASK-32** 🔴 Commit: "estrutura base do frontend + listagem de usuários"
 
 **Critério de aceite da Sprint 4:** tela lista usuários reais vindos da API.
 
@@ -76,12 +76,12 @@
 ## SPRINT 5 — Frontend: Detalhe e CRUD Usuário
 📅 Dia 6 (Ter 14/07 - noite)
 
-- [ ] **TASK-33** 🔴 Criar componente `user-detail` — exibir dados do usuário + lista de endereços vinculados
-- [ ] **TASK-34** 🔴 Criar componente `user-form` (reativo) — cadastro e edição de usuário (reaproveitar componente para os dois casos)
-- [ ] **TASK-35** 🔴 Implementar validações no formulário (nome obrigatório, e-mail válido, telefone obrigatório)
-- [ ] **TASK-36** 🔴 Implementar ação de exclusão de usuário (com confirmação)
-- [ ] **TASK-37** 🟡 Tratar estados vazios (usuário sem endereço cadastrado ainda)
-- [ ] **TASK-38** 🔴 Commit: "tela de detalhe + CRUD completo de usuário no frontend"
+- [X] **TASK-33** 🔴 Criar componente `user-detail` — exibir dados do usuário + lista de endereços vinculados
+- [X] **TASK-34** 🔴 Criar componente `user-form` (reativo) — cadastro e edição de usuário (reaproveitar componente para os dois casos)
+- [X] **TASK-35** 🔴 Implementar validações no formulário (nome obrigatório, e-mail válido, telefone obrigatório)
+- [X] **TASK-36** 🔴 Implementar ação de exclusão de usuário (com confirmação)
+- [X] **TASK-37** 🟡 Tratar estados vazios (usuário sem endereço cadastrado ainda)
+- [X] **TASK-38** 🔴 Commit: "tela de detalhe + CRUD completo de usuário no frontend"
 
 **Critério de aceite da Sprint 5:** fluxo completo de criar, ver, editar e excluir usuário funcionando de ponta a ponta.
 
@@ -90,12 +90,12 @@
 ## SPRINT 6 — Frontend: CRUD Endereço
 📅 Dia 7 (Qua 15/07 - noite)
 
-- [ ] **TASK-39** 🔴 Criar componente `address-form` — cadastro e edição de endereço
-- [ ] **TASK-40** 🔴 Implementar busca automática ao digitar/sair do campo CEP (chamando o backend, que valida via ViaCEP)
-- [ ] **TASK-41** 🔴 Preencher automaticamente rua/bairro/cidade/estado ao validar CEP
-- [ ] **TASK-42** 🔴 Implementar ação de adicionar múltiplos endereços a um mesmo usuário
-- [ ] **TASK-43** 🟡 Implementar edição e exclusão de endereço específico
-- [ ] **TASK-44** 🔴 Commit: "CRUD completo de endereço no frontend"
+- [X] **TASK-39** 🔴 Criar componente `address-form` — cadastro e edição de endereço
+- [X] **TASK-40** 🔴 Implementar busca automática ao digitar/sair do campo CEP (chamando o backend, que valida via ViaCEP)
+- [X] **TASK-41** 🔴 Preencher automaticamente rua/bairro/cidade/estado ao validar CEP
+- [X] **TASK-42** 🔴 Implementar ação de adicionar múltiplos endereços a um mesmo usuário
+- [X] **TASK-43** 🟡 Implementar edição e exclusão de endereço específico
+- [x] **TASK-44** 🔴 Commit: "CRUD completo de endereço no frontend"
 
 **Critério de aceite da Sprint 6:** usuário consegue ter múltiplos endereços, todos validados via CEP.
 

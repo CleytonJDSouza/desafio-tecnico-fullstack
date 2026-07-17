@@ -104,9 +104,9 @@
 ## SPRINT 7 — UX, Testes Finais e Entrega
 📅 Dia 8 (Qui 16/07)
 
-- [ ] **TASK-45** 🟡 Implementar spinner global (interceptor HTTP no Angular) durante chamadas à API
-- [ ] **TASK-46** 🟡 Implementar toasts (ex: `ngx-toastr`) para sucesso, erro e CEP inválido
-- [ ] **TASK-47** 🟡 Revisar mensagens de erro do backend para serem amigáveis no frontend
+- [X] **TASK-45** 🟡 Implementar spinner global (interceptor HTTP no Angular) durante chamadas à API
+- [X] **TASK-46** 🟡 Implementar toasts (ex: `ngx-toastr`) para sucesso, erro e CEP inválido
+- [X] **TASK-47** 🟡 Revisar mensagens de erro do backend para serem amigáveis no frontend
 - [ ] **TASK-48** 🔴 Rodar todos os testes unitários do backend e garantir que passam (`mvn test`)
 - [ ] **TASK-49** 🔴 Testar fluxo completo manualmente (criar usuário → adicionar endereço → editar → excluir)
 - [ ] **TASK-50** 🔴 Escrever `README.md`:

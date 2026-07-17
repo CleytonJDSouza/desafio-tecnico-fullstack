@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { CepService } from '../../services/cep';
+import { Toast } from '../../services/toast';
 
 @Component({
   selector: 'app-user-form',
@@ -28,9 +29,11 @@ constructor(
   private readonly route: ActivatedRoute,
   private readonly router: Router,
   private readonly userService: UserService,
-  private readonly cepService: CepService
+  private readonly cepService: CepService,
+  private readonly toast: Toast
 ) {
   this.criarFormulario();
+
 }
 
   ngOnInit(): void {
@@ -192,15 +195,18 @@ constructor(
       : this.userService.create(payload);
 
     operacao.subscribe({
-      next: (usuarioSalvo) => {
-        this.salvando.set(false);
-        this.router.navigate(['/users', usuarioSalvo.id]);
-      },
-      error: (erro) => {
-        this.salvando.set(false);
-        this.tratarErro(erro);
-      }
-    });
+  next: (usuarioSalvo) => {
+    this.salvando.set(false);
+    this.toast.sucesso(
+      this.modoEdicao() ? 'Usuário atualizado com sucesso!' : 'Usuário criado com sucesso!'
+    );
+    this.router.navigate(['/users', usuarioSalvo.id]);
+  },
+  error: (erro) => {
+    this.salvando.set(false);
+    this.tratarErro(erro);
+  }
+});
   }
 
   tratarErro(erro: any): void {
@@ -213,15 +219,18 @@ constructor(
           Object.entries(erro.error.messages).map(([campo, mensagemCampo]) => [campo, String(mensagemCampo)])
         )
       );
+      this.toast.erro('Corrija os campos indicados antes de salvar.');
       return;
     }
 
     if (erro?.status === 400 && mensagem) {
       this.erroGeral.set(mensagem);
+      this.toast.erro(mensagem);
       return;
     }
 
     this.erroGeral.set('Não foi possível salvar o usuário. Tente novamente.');
+    this.toast.erro('Não foi possível salvar o usuário. Tente novamente.');
   }
 
   voltarParaListagem(): void {

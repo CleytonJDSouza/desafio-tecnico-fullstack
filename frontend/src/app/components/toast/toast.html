@@ -1,0 +1,8 @@
+<div class="toast-container">
+  @for (msg of toastService.mensagens(); track msg.id) {
+    <div class="toast" [class.sucesso]="msg.tipo === 'sucesso'" [class.erro]="msg.tipo === 'erro'">
+      <span>{{ msg.texto }}</span>
+      <button type="button" class="toast-close" (click)="toastService.remover(msg.id)">×</button>
+    </div>
+  }
+</div>

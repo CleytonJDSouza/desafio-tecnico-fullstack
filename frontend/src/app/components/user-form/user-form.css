@@ -2,7 +2,7 @@
   max-width: 960px;
   margin: 2rem auto;
   padding: 1.5rem;
-  background: #252422;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -17,7 +17,7 @@
 
 .header h2 {
   margin: 0;
-  color: #eb5e28;
+  color: #1f2937;
 }
 
 .actions {
@@ -37,8 +37,8 @@
 }
 
 .primary-button {
-  background: #eb5e28;
-  color: #403d39;
+  background: #2563eb;
+  color: #fff;
 }
 
 .primary-button:disabled {
@@ -47,12 +47,12 @@
 }
 
 .secondary-button {
-  background: #403d39;
-  color: #eb5e28;
+  background: #e5e7eb;
+  color: #111827;
 }
 
 .danger-button {
-  background: #eb5e28;
+  background: #dc2626;
   color: #fff;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .error-banner {
-  background: #252422;
+  background: #fef2f2;
   color: #b91c1c;
   border: 1px solid #fecaca;
   border-radius: 8px;
@@ -83,8 +83,8 @@
 }
 
 .carregando {
-  background: #252422;
-  color: #eb5e28;
+  background: #eff6ff;
+  color: #1d4ed8;
 }
 
 .user-form {
@@ -94,10 +94,10 @@
 }
 
 .form-section {
-  border: 1px solid #ccc5b9;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 1rem;
-  background: #ccc5b9;
+  background: #f9fafb;
 }
 
 .section-header,
@@ -112,7 +112,7 @@
 .form-section h3,
 .address-card h4 {
   margin: 0;
-  color: #252422;
+  color: #111827;
 }
 
 .field-group {
@@ -124,11 +124,11 @@
 
 .field-group label {
   font-weight: 600;
-  color: #252422;
+  color: #374151;
 }
 
 .field-group input {
-  border: 1px solid #252422;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   padding: 0.7rem 0.8rem;
   font-size: 1rem;
@@ -136,7 +136,7 @@
 
 .field-group input:focus {
   outline: 2px solid #bfdbfe;
-  border-color: #eb5e28;
+  border-color: #60a5fa;
 }
 
 .field-error {
@@ -145,7 +145,7 @@
 
 .address-card {
   padding: 1rem;
-  border: 1px solid #eb5e28;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #fff;
   margin-bottom: 0.75rem;

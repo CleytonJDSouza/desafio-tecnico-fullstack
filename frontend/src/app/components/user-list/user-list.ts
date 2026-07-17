@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { Toast } from '../../services/toast';
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +18,10 @@ export class UserListComponent implements OnInit {
   carregando = signal(false);
   erro = signal('');
 
-  constructor(private readonly userService: UserService) {}
+  constructor(
+  private readonly userService: UserService,
+  private readonly toast: Toast
+) {}
 
   ngOnInit(): void {
     this.carregarUsuarios();
@@ -53,9 +57,11 @@ export class UserListComponent implements OnInit {
     this.userService.delete(usuario.id).subscribe({
       next: () => {
         this.usuarios.update((lista) => lista.filter((item) => item.id !== usuario.id));
+        this.toast.sucesso(`${usuario.nome} foi excluído com sucesso.`);
       },
       error: () => {
         this.erro.set(`Não foi possível excluir ${usuario.nome}.`);
+        this.toast.erro(`Não foi possível excluir ${usuario.nome}.`);
       }
     });
   }

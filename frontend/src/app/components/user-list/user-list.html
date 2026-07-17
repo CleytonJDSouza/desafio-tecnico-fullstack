@@ -1,9 +1,14 @@
 <section class="user-list-container">
   <div class="header">
     <h2>Usuários</h2>
-    <button type="button" class="refresh-button" (click)="carregarUsuarios()">
-      Atualizar
-    </button>
+    <div class="header-actions">
+      <a class="add-button" routerLink="/users/new">
+        + Novo usuário
+      </a>
+      <button type="button" class="refresh-button" (click)="carregarUsuarios()">
+        Atualizar
+      </button>
+    </div>
   </div>
 
   @if (carregando()) {
